@@ -7,16 +7,21 @@ $(document).ready(function(){
     var pieces = ["red", "blue", "white", "green"]
     var game = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
     var json = {"red": "100px,25px", "blue": "150px,115px", "green": "120px,155px", "white": "80px,55px"};
+    var upToDate = false;
     var socket = io();
     socket.emit("join", game);
     socket.on("dice", function (arr) {
-        console.log("recieved arr", arr)
+        //console.log("recieved arr", arr)
         animateDice(JSON.parse(arr))
       });
     socket.on("move", function (updateJson) {
-        console.log("recieved json", updateJson)
+        if (!upToDate) upToDate = true
+        //console.log("recieved json", updateJson)
         update(JSON.parse(updateJson))
       });
+    socket.on("help", function (id) {
+        socket.emit("helping", id, JSON.stringify(json));
+    });
 
     pieces.forEach(function(elem){
         $("#" + elem +"piece, #" + elem + "pieceoverlay").animate({left: json[elem].split(",")[0], top: json[elem].split(",")[1]})
@@ -89,7 +94,7 @@ $(document).ready(function(){
                 } else {
                     var posString = $("#" + id).css("left")+","+$("#" + id).css("top")
                     json[id.split("pie")[0]] = posString
-                    console.log(json)
+                    //console.log(json)
                     socket.emit("move", game, JSON.stringify(json));
                     toBeMoved = undefined
                 }
@@ -118,7 +123,7 @@ $(document).ready(function(){
     function update(updateJson){
         pieces.forEach(function(elem){
             if (json[elem] != updateJson[elem]){
-                console.log("gotta move " + elem)
+                //console.log("gotta move " + elem)
                 $("#" + elem +"piece, #" + elem + "pieceoverlay").animate({left: updateJson[elem].split(",")[0], top: updateJson[elem].split(",")[1]})
             }
         })

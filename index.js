@@ -24,20 +24,27 @@ app.get('/', (req, res) => {
         console.log('user disconnected');
       });
 
-    socket.on('join', (msg) => {
+    socket.on('join', (room) => {
         //console.log(msg)
-        socket.join(msg);
-        console.log("joined", msg)
+        //console.log(socket.id)
+        socket.join(room);
+        console.log("joined", room)
+        socket.to(room).emit('help', socket.id)
         //io.to(msg).emit('chat message', "testing");//send info for joining room
       });
+    
+    socket.on('helping', (id, json) => {
+        //console.log(id, json)
+        io.to(id).emit('move', json)
+    });
 
     socket.on('dice', (room, arr) => {
-        console.log(room, arr)
+        //console.log(room, arr)
         socket.to(room).emit('dice', arr);//send to everybody else (io.to would be to all)
       });
 
       socket.on('move', (room, json) => {
-        console.log(room, json)
+        //console.log(room, json)
         socket.to(room).emit('move', json);//send to everybody else (io.to would be to all)
       });
 
