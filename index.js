@@ -35,6 +35,12 @@ app.get('/', (req, res) => {
         console.log(room, arr)
         socket.to(room).emit('dice', arr);//send to everybody else (io.to would be to all)
       });
+
+      socket.on('move', (room, json) => {
+        console.log(room, json)
+        socket.to(room).emit('move', json);//send to everybody else (io.to would be to all)
+      });
+
   });
 
   ///////// socket.io ends here

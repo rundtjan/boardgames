@@ -6,12 +6,16 @@ $(document).ready(function(){
     var highestZ = 0
     var pieces = ["red", "blue", "white", "green"]
     var game = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
-    var json = {"game": game, "red": "100px,25px", "blue": "150px,115px", "green": "120px,155px", "white": "80px,55px"};
+    var json = {"red": "100px,25px", "blue": "150px,115px", "green": "120px,155px", "white": "80px,55px"};
     var socket = io();
     socket.emit("join", game);
     socket.on("dice", function (arr) {
         console.log("recieved arr", arr)
         animateDice(JSON.parse(arr))
+      });
+    socket.on("move", function (updateJson) {
+        console.log("recieved json", updateJson)
+        update(JSON.parse(updateJson))
       });
 
     pieces.forEach(function(elem){
@@ -30,10 +34,11 @@ $(document).ready(function(){
                 event.preventDefault()
                 relX = Math.round(event.pageX - $(this).offset().left);
                 relY = Math.round(event.pageY - $(this).offset().top);
-                $("#"+toBeMoved).css("top", relY-7 +"px")
-                $("#"+toBeMoved).css("left", relX-7 +"px")
-                $("#"+toBeMoved + "overlay").css("top", relY-7 +"px")
-                $("#"+toBeMoved + "overlay").css("left", relX-7 +"px")
+                var offset = 16
+                $("#"+toBeMoved).css("top", relY-offset +"px")
+                $("#"+toBeMoved).css("left", relX-offset +"px")
+                $("#"+toBeMoved + "overlay").css("top", relY-offset +"px")
+                $("#"+toBeMoved + "overlay").css("left", relX-offset +"px")
     
             });
     } else {
@@ -85,6 +90,7 @@ $(document).ready(function(){
                     var posString = $("#" + id).css("left")+","+$("#" + id).css("top")
                     json[id.split("pie")[0]] = posString
                     console.log(json)
+                    socket.emit("move", game, JSON.stringify(json));
                     toBeMoved = undefined
                 }
     }
@@ -107,6 +113,16 @@ $(document).ready(function(){
         for (var i = 0; i < arr.length; i++){
         setTimeout(function(){$("#thedice").attr("src", "/public/img/dice" + arr[0] + ".jpg"); arr.shift()}, i*80)
         }
+    }
+
+    function update(updateJson){
+        pieces.forEach(function(elem){
+            if (json[elem] != updateJson[elem]){
+                console.log("gotta move " + elem)
+                $("#" + elem +"piece, #" + elem + "pieceoverlay").animate({left: updateJson[elem].split(",")[0], top: updateJson[elem].split(",")[1]})
+            }
+        })
+        json = updateJson
     }
             
     });
