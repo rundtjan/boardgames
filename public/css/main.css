@@ -1,0 +1,132 @@
+.board {
+	position: relative; 
+	display: block; 
+	width:1280px; 
+	margin: auto
+}
+
+.overlay {
+	display: block;
+	position: absolute;
+	background-color: rgba(255,255,255,0)
+}
+
+#boardoverlay {
+	top: 0;
+	left: 0;
+	width: 1280px;
+	height: 800px;
+}
+
+.piece {
+	display: block;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+	border-style: solid;
+}
+
+.pieceoverlay {
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+}
+
+#background {
+	position: absolute;
+}
+
+.question {
+	display: block;
+	width: 150px;
+	height: 100%;
+	color: white;
+	position: absolute;
+	text-align: center;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+#one {
+	top: 50px;
+	left: 300px;
+}
+
+#two {
+	top: 50px;
+	left: 550px;
+}
+
+#three {
+	top: 50px;
+	left: 795px;
+}
+
+#redpiece {
+	left: 100px;
+	top: 25px;
+}
+
+#redpieceoverlay {
+	left: 100px;
+	top: 25px;
+}
+
+#whitepiece {
+	left: 80px;
+	top: 55px;
+}
+
+#greenpiece {
+	left: 120px;
+	top: 155px;
+}
+
+#bluepiece {
+	left: 150px;
+	top: 115px;
+}
+
+#bluepieceoverlay {
+	left: 150px;
+	top: 115px;
+}
+
+
+.name {
+	position: absolute;
+	left: 15px;
+	top: 7px;
+	cursor: pointer;
+	font-size: 20px;
+}
+
+.diceclick {
+	position: relative;
+	display: block;
+	width: 200px;
+	height: 50px;
+	margin: auto;
+}
+
+#kasta {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100px;
+	height: 50px;
+	font-size: 20px;
+}
+
+.dice {
+	position: absolute;
+	top: 0px;
+	left: 110px;
+}
+
+#thedice {
+	width: 50px;
+}
