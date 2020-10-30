@@ -6,7 +6,7 @@ $(document).ready(function(){
     var highestZ = 0
     var pieces = ["red", "blue", "white", "green", "black", "orangered", "yellow", "violet"]
     var game = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
-    var json = {"red": "80px,25px", "blue": "120px,100px", "green": "100px,130px", "white": "60px,55px", "black": "30px,80px", "orangered": "60px,140px", "yellow": "70px,90px", "violet": "110px,20px"};
+    var json = {"red": "80px,25px", "blue": "120px,100px", "green": "100px,130px", "white": "60px,55px", "black": "30px,80px", "orangered": "60px,140px", "yellow": "70px,90px", "violet": "125px,20px"};
     var upToDate = false;
     var socket = io();
     socket.emit("join", game);
@@ -71,7 +71,13 @@ $(document).ready(function(){
     }
     
     if (!isTouchScreen){
-        $(".pieceoverlay").click(function(e){
+        /*$(".pieceoverlay").click(function(e){
+            move(e.target.id.split("overl")[0])
+        })*/
+        $(".pieceoverlay").on("mousedown", function(e){
+            move(e.target.id.split("overl")[0])
+        })
+        $(".pieceoverlay").on("mouseup", function(e){
             move(e.target.id.split("overl")[0])
         })
     } else {
