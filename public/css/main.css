@@ -41,30 +41,86 @@
 
 .question {
 	display: block;
-	width: 150px;
+	width: 130px;
 	height: 100%;
 	color: white;
 	position: absolute;
 	text-align: center;
-	font-size: 25px;
+	font-size: 23px;
 	font-weight: bold;
 }
 
 #one {
-	top: 50px;
-	left: 300px;
+	top: 40px;
+	left: 230px;
 }
 
 #two {
-	top: 50px;
-	left: 550px;
+	top: 40px;
+	left: 420px;
 }
 
 #three {
-	top: 50px;
-	left: 795px;
+	top: 40px;
+	left: 615px;
 }
 
+#four {
+	top: 35px;
+	left: 805px;
+	color: black;
+}
+
+#five {
+	top: 215px;
+	left: 805px;
+}
+
+#six {
+	top: 215px;
+	left: 615px;
+}
+
+#seven {
+	top: 205px;
+	left: 420px;
+	font-size: 20px;
+}
+
+#eight {
+	top: 210px;
+	left: 230px;
+}
+
+#nine {
+	top: 200px;
+	left: 35px;
+	color: black;
+	font-size: 22px;
+}
+
+#ten {
+	top: 400px;
+	left: 35px;
+}
+
+#eleven {
+	top: 395px;
+	left: 220px;
+	font-size: 18px;
+	width: 150px;
+}
+
+#twelve {
+	top: 400px;
+	left: 420px;
+}
+
+#thirteen {
+	top: 400px;
+	left: 615px;
+	color: black;
+}
 
 .name {
 	position: absolute;
