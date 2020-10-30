@@ -8,6 +8,7 @@ $(document).ready(function(){
     var game = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
     var json = {"red": "80px,25px", "blue": "120px,100px", "green": "100px,130px", "white": "60px,55px", "black": "30px,80px", "orangered": "60px,140px", "yellow": "70px,90px", "violet": "125px,20px"};
     var upToDate = false;
+    $("#blackpiece, #blackpieceoverlay, #orangeredpiece, #orangeredpieceoverlay, #yellowpiece, #yellowpieceoverlay, #violetpiece, #violetpieceoverlay").css("display", "none")
     var socket = io();
     socket.emit("join", game);
     socket.on("dice", function (arr) {
@@ -25,6 +26,20 @@ $(document).ready(function(){
 
     pieces.forEach(function(elem){
         $("#" + elem +"piece, #" + elem + "pieceoverlay").animate({left: json[elem].split(",")[0], top: json[elem].split(",")[1]})
+    })
+
+    $("#mera").click(function(){
+        var antal = parseInt($("#antal").html())
+        if (antal < 8) antal++
+        $("#antal").html(antal)
+        $("#" + pieces[antal-1] + "piece, #" + pieces[antal-1] + "pieceoverlay").css("display", "block")
+    })
+
+    $("#mindre").click(function(){
+        var antal = parseInt($("#antal").html())
+        if (antal > 1) antal--
+        $("#antal").html(antal)
+        $("#" + pieces[antal] + "piece, #" + pieces[antal] + "pieceoverlay").css("display", "none")
     })
     
      
@@ -71,9 +86,6 @@ $(document).ready(function(){
     }
     
     if (!isTouchScreen){
-        /*$(".pieceoverlay").click(function(e){
-            move(e.target.id.split("overl")[0])
-        })*/
         $(".pieceoverlay").on("mousedown", function(e){
             move(e.target.id.split("overl")[0])
         })
