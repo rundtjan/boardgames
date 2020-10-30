@@ -4,9 +4,9 @@ $(document).ready(function(){
     var relY
     var toBeMoved;
     var highestZ = 0
-    var pieces = ["red", "blue", "white", "green"]
+    var pieces = ["red", "blue", "white", "green", "black", "orangered", "yellow", "violet"]
     var game = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
-    var json = {"red": "100px,25px", "blue": "150px,115px", "green": "120px,155px", "white": "80px,55px"};
+    var json = {"red": "80px,25px", "blue": "120px,100px", "green": "100px,130px", "white": "60px,55px", "black": "30px,80px", "orangered": "60px,140px", "yellow": "70px,90px", "violet": "110px,20px"};
     var upToDate = false;
     var socket = io();
     socket.emit("join", game);
@@ -123,7 +123,7 @@ $(document).ready(function(){
     function update(updateJson){
         pieces.forEach(function(elem){
             if (json[elem] != updateJson[elem]){
-                //console.log("gotta move " + elem)
+                //  console.log("gotta move " + elem)
                 $("#" + elem +"piece, #" + elem + "pieceoverlay").animate({left: updateJson[elem].split(",")[0], top: updateJson[elem].split(",")[1]})
             }
         })

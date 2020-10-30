@@ -65,36 +65,6 @@
 	left: 795px;
 }
 
-#redpiece {
-	left: 100px;
-	top: 25px;
-}
-
-#redpieceoverlay {
-	left: 100px;
-	top: 25px;
-}
-
-#whitepiece {
-	left: 80px;
-	top: 55px;
-}
-
-#greenpiece {
-	left: 120px;
-	top: 155px;
-}
-
-#bluepiece {
-	left: 150px;
-	top: 115px;
-}
-
-#bluepieceoverlay {
-	left: 150px;
-	top: 115px;
-}
-
 
 .name {
 	position: absolute;
