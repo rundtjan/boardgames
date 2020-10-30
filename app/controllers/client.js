@@ -6,7 +6,7 @@ $(document).ready(function(){
     var highestZ = 0
     var pieces = ["red", "blue", "white", "green", "black", "orangered", "yellow", "violet"]
     var game = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
-    var json = {"red": "80px,25px", "blue": "120px,100px", "green": "100px,130px", "white": "60px,55px", "black": "30px,80px", "orangered": "60px,140px", "yellow": "70px,90px", "violet": "125px,20px"};
+    var json = {"antal": 4, "red": "80px,25px", "blue": "120px,100px", "green": "100px,130px", "white": "60px,55px", "black": "30px,80px", "orangered": "60px,140px", "yellow": "70px,90px", "violet": "125px,20px"};
     var upToDate = false;
     $("#blackpiece, #blackpieceoverlay, #orangeredpiece, #orangeredpieceoverlay, #yellowpiece, #yellowpieceoverlay, #violetpiece, #violetpieceoverlay").css("display", "none")
     var socket = io();
@@ -23,24 +23,38 @@ $(document).ready(function(){
     socket.on("help", function (id) {
         socket.emit("helping", id, JSON.stringify(json));
     });
+    socket.on('mera', more)
+    socket.on('mindre', less)
 
     pieces.forEach(function(elem){
         $("#" + elem +"piece, #" + elem + "pieceoverlay").animate({left: json[elem].split(",")[0], top: json[elem].split(",")[1]})
     })
 
     $("#mera").click(function(){
+        more()
+        socket.emit("mera", game)
+    })
+
+    function more(){
         var antal = parseInt($("#antal").html())
         if (antal < 8) antal++
         $("#antal").html(antal)
+        json.antal = antal
         $("#" + pieces[antal-1] + "piece, #" + pieces[antal-1] + "pieceoverlay").css("display", "block")
-    })
+    }
 
     $("#mindre").click(function(){
+        less()
+        socket.emit("mindre", game)
+    })
+
+    function less(){
         var antal = parseInt($("#antal").html())
         if (antal > 1) antal--
         $("#antal").html(antal)
+        json.antal = antal
         $("#" + pieces[antal] + "piece, #" + pieces[antal] + "pieceoverlay").css("display", "none")
-    })
+    }
     
      
     function checkTouchDevice() {
@@ -145,6 +159,14 @@ $(document).ready(function(){
                 $("#" + elem +"piece, #" + elem + "pieceoverlay").animate({left: updateJson[elem].split(",")[0], top: updateJson[elem].split(",")[1]})
             }
         })
+        if (json.antal != updateJson.antal){
+            while (json.antal > updateJson.antal){
+                less()
+            }
+            while (json.antal < updateJson.antal){
+                more()
+            }
+        }
         json = updateJson
     }
             

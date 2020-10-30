@@ -47,6 +47,14 @@ app.get('/', (req, res) => {
         //console.log(room, json)
         socket.to(room).emit('move', json);//send to everybody else (io.to would be to all)
       });
+    
+    socket.on('mera', (room) => {
+      socket.to(room).emit('mera')
+    })
+
+    socket.on('mindre', (room) => {
+      socket.to(room).emit('mindre')
+    })
 
   });
 
