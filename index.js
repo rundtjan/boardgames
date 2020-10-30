@@ -8,7 +8,7 @@ app.use('/public', express.static(process.cwd() + '/public'));
 app.use('/app', express.static(process.cwd() + '/app'));
 
 app.get('/', (req, res) => {
-    res.sendFile(process.cwd() + "/public/index.html");
+    res.sendFile(process.cwd() + "/public/menu.html");
   });
 
   app.get('/:random', (req, res) => {

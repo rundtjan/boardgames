@@ -11,6 +11,18 @@
 	background-color: rgba(255,255,255,0)
 }
 
+.room {
+	width: 200px;
+	margin: 2px;
+}
+
+.menyn {
+	margin: auto;
+	display: block;
+	width: 500px;
+	text-align: center;
+}
+
 #boardoverlay {
 	top: 0;
 	left: 0;

@@ -114,6 +114,24 @@ $(document).ready(function(){
             move(e.target.id.split("overl")[0])
         })
     }
+
+    $(".room").click(function(e){
+        console.log(e.target.id)
+        switch(e.target.id){
+            case "room1":
+                window.location.href = "/1loekq1";
+                break;
+            case "room2":
+                window.location.href = "/3kuduwk";
+                break;              
+            case "room3":
+                window.location.href = "/883kauej";
+                break;
+            case "room4":
+                window.location.href = "/fsdaiw23"; 
+                break;   
+            }
+    })
             
     function move(id){
                 //console.log(id)
