@@ -14,7 +14,6 @@
 .room {
 	width: 200px;
 	margin: 2px;
-	margin: auto;
 }
 
 .menyn {
@@ -27,6 +26,9 @@
 @media screen and (max-width: 400px) {
 	.menyn {
 		width:300px;	
+	}
+	.room {
+		margin: 2px auto;
 	}
   }
 
