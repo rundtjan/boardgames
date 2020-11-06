@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+    console.log(facit)
     var relX
     var relY
     var toBeMoved;
@@ -114,6 +114,17 @@ $(document).ready(function(){
             move(e.target.id.split("overl")[0])
         })
     }
+
+    $(".facitoverlay").click(function(e){
+        console.log(facit[e.target.id.split("facitoverlay")[1]])
+        $("#myModal").css("display", "block")
+        $("#modaltext").html(facit[e.target.id.split("facitoverlay")[1]])
+    })
+
+    $("#close").click(function(){
+        $("#myModal").css("display", "none")
+        $("#modaltext").html("")
+    })
 
     $(".room").click(function(e){
         console.log(e.target.id)

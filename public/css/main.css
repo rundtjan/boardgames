@@ -23,6 +23,90 @@
 	text-align: center;
 }
 
+.facit {
+	position: absolute;
+	display: block;
+	background-color: darkslategrey;
+	color: white;
+	width: 28px;
+	height: 28px;
+	border-radius: 14px;
+	padding-left: 8px;
+	border: solid;
+	border-color: white;
+}
+
+.facitoverlay {
+	width: 28px;
+	height: 28px;
+	border-radius: 14px;
+}
+
+#facitone, #facitoverlayone{
+	top: 30px;
+	left: 340px;
+}
+
+#facittwo, #facitoverlaytwo{
+	top: 30px;
+	left: 535px;
+}
+
+#facitthree, #facitoverlaythree{
+	top: 30px;
+	left: 728px;
+}
+
+#facitfour, #facitoverlayfour{
+	top: 30px;
+	left: 920px;
+}
+
+#facitfive, #facitoverlayfive{
+	top: 213px;
+	left: 920px;
+}
+
+#facitsix, #facitoverlaysix{
+	top: 213px;
+	left: 728px;
+}
+
+#facitseven, #facitoverlayseven{
+	top: 210px;
+	left: 543px;
+}
+
+#faciteight, #facitoverlayeight{
+	top: 210px;
+	left: 343px;
+}
+
+#facitnine, #facitoverlaynine{
+	top: 210px;
+	left: 153px;
+}
+
+#facitten, #facitoverlayten{
+	top: 510px;
+	left: 153px;
+}
+
+#faciteleven, #facitoverlayeleven{
+	top: 510px;
+	left: 343px;
+}
+
+#facittwelve, #facitoverlaytwelve{
+	top: 510px;
+	left: 533px;
+}
+
+#facitthirteen, #facitoverlaythirteen{
+	top: 510px;
+	left: 728px;
+}
+
 #boardoverlay {
 	top: 0;
 	left: 0;
@@ -206,3 +290,33 @@
 	top: 5px;
 	left: 320px;
 }
+
+/* The Modal (background) */
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 99999; /* Sit on top */
+	text-align: center;
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+	background-color: #fefefe;
+	margin: 15% auto; /* 15% from the top and centered */
+	padding: 20px;
+	border: 1px solid #888;
+	width: 800px; /* Could be more or less, depending on screen size */
+	font-size: 20px;
+  }
+  
+ #close {
+	 width: 120px;
+	 margin: auto;
+ }

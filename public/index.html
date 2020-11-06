@@ -37,6 +37,32 @@
     <div class="question" id="twelve">12. Räkna från 50 till 100.</div>
     <div class="question" id="thirteen">13. Räkna upp alla vokaler.</div>
     <div class="overlay" id="boardoverlay"></div>
+    <div class="facit" id="facitone">?</div>
+    <div class="overlay facitoverlay" id="facitoverlayone"></div>
+    <div class="facit" id="facittwo">?</div>
+    <div class="overlay facitoverlay" id="facitoverlaytwo"></div>
+    <div class="facit" id="facitthree">?</div>
+    <div class="overlay facitoverlay" id="facitoverlaythree"></div>
+    <div class="facit" id="facitfour">?</div>
+    <div class="overlay facitoverlay" id="facitoverlayfour"></div>
+    <div class="facit" id="facitfive">?</div>
+    <div class="overlay facitoverlay" id="facitoverlayfive"></div>
+    <div class="facit" id="facitsix">?</div>
+    <div class="overlay facitoverlay" id="facitoverlaysix"></div>
+    <div class="facit" id="facitseven">?</div>
+    <div class="overlay facitoverlay" id="facitoverlayseven"></div>
+    <div class="facit" id="faciteight">?</div>
+    <div class="overlay facitoverlay" id="facitoverlayeight"></div>
+    <div class="facit" id="facitnine">?</div>
+    <div class="overlay facitoverlay" id="facitoverlaynine"></div>
+    <div class="facit" id="facitten">?</div>
+    <div class="overlay facitoverlay" id="facitoverlayten"></div>
+    <div class="facit" id="faciteleven">?</div>
+    <div class="overlay facitoverlay" id="facitoverlayeleven"></div>
+    <div class="facit" id="facittwelve">?</div>
+    <div class="overlay facitoverlay" id="facitoverlaytwelve"></div>
+    <div class="facit" id="facitthirteen">?</div>
+    <div class="overlay facitoverlay" id="facitoverlaythirteen"></div>
     <div class="piece" id="redpiece" style="background-color:red"><div id="redtext" class="name"></div></div>
     <div class="overlay pieceoverlay" id="redpieceoverlay"></div>
     <div class="piece" id="bluepiece" style="background-color:blue"><div class="name"></div></div>
@@ -54,8 +80,15 @@
     <div class="piece" id="violetpiece" style="background-color: violet"><div class="name"></div></div>
     <div class="overlay pieceoverlay" id="violetpieceoverlay"></div>
   </div>
+  <div id="myModal" class="modal">
+  <div class="modal-content">
+    <p id="modaltext"></p>
+    <button class="btn btn-primary" id="close">Stäng</button>
+  </div>
+  </div>
   <script src="/socket.io/socket.io.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script type="text/javascript" src="app/controllers/facit.js"></script>
   <script type="text/javascript" src="app/controllers/client.js"></script>
   </body>
 </html>
