@@ -14,6 +14,7 @@
 .room {
 	width: 200px;
 	margin: 2px;
+	margin: auto;
 }
 
 .menyn {
@@ -22,6 +23,12 @@
 	width: 500px;
 	text-align: center;
 }
+
+@media screen and (max-width: 400px) {
+	.menyn {
+		width:300px;	
+	}
+  }
 
 .facit {
 	position: absolute;
@@ -40,71 +47,6 @@
 	width: 28px;
 	height: 28px;
 	border-radius: 14px;
-}
-
-#facitone, #facitoverlayone{
-	top: 30px;
-	left: 340px;
-}
-
-#facittwo, #facitoverlaytwo{
-	top: 30px;
-	left: 535px;
-}
-
-#facitthree, #facitoverlaythree{
-	top: 30px;
-	left: 728px;
-}
-
-#facitfour, #facitoverlayfour{
-	top: 30px;
-	left: 920px;
-}
-
-#facitfive, #facitoverlayfive{
-	top: 213px;
-	left: 920px;
-}
-
-#facitsix, #facitoverlaysix{
-	top: 213px;
-	left: 728px;
-}
-
-#facitseven, #facitoverlayseven{
-	top: 210px;
-	left: 543px;
-}
-
-#faciteight, #facitoverlayeight{
-	top: 210px;
-	left: 343px;
-}
-
-#facitnine, #facitoverlaynine{
-	top: 210px;
-	left: 153px;
-}
-
-#facitten, #facitoverlayten{
-	top: 510px;
-	left: 153px;
-}
-
-#faciteleven, #facitoverlayeleven{
-	top: 510px;
-	left: 343px;
-}
-
-#facittwelve, #facitoverlaytwelve{
-	top: 510px;
-	left: 533px;
-}
-
-#facitthirteen, #facitoverlaythirteen{
-	top: 510px;
-	left: 728px;
 }
 
 #boardoverlay {
@@ -218,6 +160,71 @@
 	color: black;
 }
 
+#facitone, #facitoverlayone{
+	top: 30px;
+	left: 340px;
+}
+
+#facittwo, #facitoverlaytwo{
+	top: 30px;
+	left: 535px;
+}
+
+#facitthree, #facitoverlaythree{
+	top: 30px;
+	left: 728px;
+}
+
+#facitfour, #facitoverlayfour{
+	top: 30px;
+	left: 920px;
+}
+
+#facitfive, #facitoverlayfive{
+	top: 213px;
+	left: 920px;
+}
+
+#facitsix, #facitoverlaysix{
+	top: 213px;
+	left: 728px;
+}
+
+#facitseven, #facitoverlayseven{
+	top: 210px;
+	left: 543px;
+}
+
+#faciteight, #facitoverlayeight{
+	top: 210px;
+	left: 343px;
+}
+
+#facitnine, #facitoverlaynine{
+	top: 210px;
+	left: 153px;
+}
+
+#facitten, #facitoverlayten{
+	top: 510px;
+	left: 153px;
+}
+
+#faciteleven, #facitoverlayeleven{
+	top: 510px;
+	left: 343px;
+}
+
+#facittwelve, #facitoverlaytwelve{
+	top: 510px;
+	left: 533px;
+}
+
+#facitthirteen, #facitoverlaythirteen{
+	top: 510px;
+	left: 728px;
+}
+
 .name {
 	position: absolute;
 	left: 15px;
@@ -320,3 +327,9 @@
 	 width: 120px;
 	 margin: auto;
  }
+
+ @media screen and (max-width: 400px) {
+	.menyn {
+		width:300px;	
+	}
+  }
