@@ -26,6 +26,16 @@ $(document).ready(function(){
     socket.on('mera', more)
     socket.on('mindre', less)
 
+    Object.keys(questions).forEach((elem) => {
+        $("#" + elem).html(questions[elem].text)
+    })
+
+    Object.keys(facit).forEach((elem) => {//hide facit-questionmarks if there is no facit-text
+        if (facit[elem].length == 0){
+        $("#facit" + elem + ", #facitoverlay" + elem).css("display", "none")
+        }
+    })
+
     pieces.forEach(function(elem){
         $("#" + elem +"piece, #" + elem + "pieceoverlay").animate({left: json[elem].split(",")[0], top: json[elem].split(",")[1]})
     })
